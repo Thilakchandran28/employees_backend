@@ -45,30 +45,30 @@ app.post("/api/create/data", (request, response) => {
 
 
 
-// app.get("/api/list/courses", (request, response) => {
-//     const sql_query = `SELECT * FROM  employees_data `;
-//     connection.query(sql_query, (error, result) => {
-//         if (error) {
-//             response.status(500).send(error);
-//         }
-//         else {
-//             response.status(200).send(result);
-//         }
-//     })
-// });
+app.get("/api/list/data", (request, response) => {
+    const sql_query = `SELECT * FROM  employees_data `;
+    connection.query(sql_query, (error, result) => {
+        if (error) {
+            response.status(500).send(error);
+        }
+        else {
+            response.status(200).send(result);
+        }
+    })
+});
 
 
-// app.delete("/api/delete/courses/:id", (request, response) => {
-//     const sql_query = `DELETE FROM vcentry_courses WHERE id=${request.params.id}`;
-//     connection.query(sql_query, (error, result) => {
-//         if (error) {
-//             response.status(500).send(error);
-//         }
-//         else {
-//             response.status(200).send("Deleted Successfully");
-//         }
-//     })
-// });
+app.delete("/api/delete/data/:id", (request, response) => {
+    const sql_query = `DELETE FROM employees_data WHERE id=${request.params.id}`;
+    connection.query(sql_query, (error, result) => {
+        if (error) {
+            response.status(500).send(error);
+        }
+        else {
+            response.status(200).send("Deleted Successfully");
+        }
+    })
+});
 
 
 const port = process.env.PORT || 5000;
